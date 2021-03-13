@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
  *
  * @author 53137
  */
-@Slf4j(topic = "c.ThreadSafe")
-public class ThreadSafe {
+@Slf4j(topic = "c.ThreadUnSafe")
+public class ThreadUnSafe {
     static int a = 0;
 
     public static void main(String[] args) throws InterruptedException {
