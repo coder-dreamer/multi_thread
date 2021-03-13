@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
  *
  * @author 53137
  */
-@Slf4j(topic = "c.CreateThread")
-public class CreateThread {
+@Slf4j(topic = "c.CreateThreadByNewThread")
+public class CreateThreadByNewThread {
     public static void main(String[] args) {
         Thread t = new Thread() {
             @Override
