@@ -2,6 +2,8 @@ package com.lhp.thread.part1;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author 53137
  */
@@ -23,6 +25,7 @@ public class SleepInterrupt {
         //线程启动
         thread.start();
         try {
+            //TimeUnit.SECONDS.sleep(1);
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
