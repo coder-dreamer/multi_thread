@@ -5,22 +5,25 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 测试打断方法
+ * 测试打断正常线程
  *
  * @author 53137
  */
-@Slf4j(topic = "c.TestInterrupt")
-public class TestInterrupt {
+@Slf4j(topic = "c.TestInterruptNormal")
+public class TestInterruptNormal {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            for (; ; ) {
+                boolean interrupted = Thread.currentThread().isInterrupted();
+                if (interrupted) {
+                    log.debug("线程被打断了，退出循环");
+                    break;
+                }
             }
         }, "t1");
-        TimeUnit.SECONDS.sleep(1);
+        t1.start();
         log.debug("开始打断");
+        Thread.sleep(500);
         t1.interrupt();
         log.debug("打断标记：{}", t1.isInterrupted());
     }
