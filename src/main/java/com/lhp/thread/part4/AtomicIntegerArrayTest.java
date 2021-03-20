@@ -36,7 +36,7 @@ public class AtomicIntegerArrayTest {
     }
 
     private static <T> void demo(
-            //生产者
+            //生产者,无参，有返回结果
             Supplier<T> arraySupplier,
             //函数
             Function<T, Integer> lengthFun,
