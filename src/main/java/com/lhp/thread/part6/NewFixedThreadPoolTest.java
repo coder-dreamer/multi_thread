@@ -33,6 +33,5 @@ public class NewFixedThreadPoolTest {
         executorService.execute(() -> {
             log.debug("3");
         });
-
     }
 }
