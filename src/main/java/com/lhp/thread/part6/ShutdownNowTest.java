@@ -11,8 +11,8 @@ import java.util.concurrent.*;
  *
  * @author 53137
  */
-@Slf4j(topic = "c.ShutdownTest")
-public class ShutdownTest {
+@Slf4j(topic = "c.ShutdownNowTest")
+public class ShutdownNowTest {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(1);
         executorService.execute(() -> {
@@ -39,9 +39,8 @@ public class ShutdownTest {
                 e.printStackTrace();
             }
         });
-        //执行完所有任务后停止线程池
-        executorService.shutdown();
-        //不阻塞主线程执行
-        log.debug("123");
+        List<Runnable> runnables = executorService.shutdownNow();
+
+        log.debug("{}", runnables);
     }
 }
