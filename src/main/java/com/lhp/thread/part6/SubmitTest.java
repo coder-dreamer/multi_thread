@@ -13,12 +13,9 @@ import java.util.concurrent.*;
 public class SubmitTest {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
-        Future<String> submit = executorService.submit(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                TimeUnit.SECONDS.sleep(1);
-                return "testSubmit";
-            }
+        Future<String> submit = executorService.submit(() -> {
+            TimeUnit.SECONDS.sleep(1);
+            return "testSubmit";
         });
         try {
             log.debug("获取结果{}", submit.get());
